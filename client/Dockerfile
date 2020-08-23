@@ -8,7 +8,5 @@ COPY public ./public
 RUN yarn run build
 
 FROM nginx:1.19.2-alpine
-
 COPY --from=builder /react-app/build /usr/share/nginx/html
-
 CMD ["nginx", "-g", "daemon off;"]
